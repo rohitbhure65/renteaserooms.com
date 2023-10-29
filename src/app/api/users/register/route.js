@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import { CONNECTION_KEY, connectionOptions } from "@/app/lib/db"
-import { User } from "@/app/lib/model/User"
+import User from "@/app/lib/model/UserModel"
 
 // GET request
 export async function GET() {
