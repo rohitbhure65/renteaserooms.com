@@ -11,7 +11,7 @@ const Register = () => {
   const [profileImg, setprofileImg] = useState("");
 
   const signup = async () => {
-    let result = await fetch("http://localhost:3000/api/users", {
+    let result = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({
         name,
