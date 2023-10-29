@@ -20,11 +20,6 @@ const UserSchema = new mongoose.Schema({
         required: [true, "Please provide a password"],
         min: 6
     },
-    cpassword: {
-        type: String,
-        required: [true, "Please confirm password"],
-        min: 6
-    },
     role: {
         type: String,
         required: [true, "Please provide a role"],
