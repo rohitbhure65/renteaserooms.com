@@ -1,12 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 const Register = () => {
   const router = useRouter();
-  const [user, setUser] = React.useState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
@@ -14,15 +16,16 @@ const Register = () => {
     role: "",
     profileImg: "",
   });
-
-  const [buttonDisabled, setButtonDisabled] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
+ 
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onSignup = async () => {
     try {
-      setLoading(true)
-      const response = await axios.post("/api/users/register", user);
-      router.push("/auth/login")
+      setLoading(true);
+      const response = await axios.post("http://localhost:3000/api/users/register", user);
+      console.log("Signu success", response.data);
+      // router.push("/auth/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
       toast.error(error.message);
@@ -46,6 +49,7 @@ const Register = () => {
   return (
     <div>
       <h1>{loading ? "Processing" : "signup"}</h1>
+      <label htmlFor="username"></label>
       <input
         type="text"
         value={user.name}

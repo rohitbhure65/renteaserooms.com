@@ -1,19 +1,31 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const dbURL = process.env.MONGO_KEY;
+// const connect = async () => {
+  //   try {
+  //     await mongoose.connect(process.env.MONGO_URL!);
+  //     const connection = mongoose.connection
+      
+  //     connection.on('Connected',()=>{
+  //       console.log('MongoDB Connected Successfully')
+  //     })
 
-const connectDB = async () => {
-    try {
-      await mongoose.connect(dbURL, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
+  //     connection.on('error',(err)=>{
+  //     console.log('MongoDB Connection Error. Please make sure MongoDB is running .' + err);
+  //     process.exit();
+  //     })
+
+  //   } catch (error) {
+  //     console.error('Somthing goes wrong!', error);
+  //   }
+  // };
   
-    });
+  const connect = async () => {
+    try {
+      await mongoose.create(process.env.MONGO!);
       console.log('MongoDB connected');
     } catch (error) {
       console.error('MongoDB connection error:', error);
     }
   };
-  
-const dbConnection = connectDB;
-export default dbConnection;
+
+export default connect;

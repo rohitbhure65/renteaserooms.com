@@ -3,18 +3,17 @@ import connectDB from "../../../lib/dbConnection/dbconfig";
 import User from "../../../lib/model/UserModel";
 import bcrypt from "bcrypt";
 
-connectDB();
 
 export async function POST(request: NextRequest){
     try {
-       const reqBody =  await request.json()
-       const {name, email,password} = reqBody
+       connectDB();
+       const reqBody =  await request.json();
+       const {name, email, phone, password, role, profileImg} = reqBody;
 
         // check if user already exists
         const user = await User.findOne({email})
         if(user){
-            return NextResponse.json({error: "User already exists"},
-                {status: 400})
+            return NextResponse.json({error: "User already exists"},{status: 400})
         }
         
         // hash password
@@ -24,7 +23,11 @@ export async function POST(request: NextRequest){
         const newUSer = new User({
             name,
             email,
+            phone,
+            role,
+            profileImg,
             password: hashedPassword
+
         })
 
         const savedUser = await newUSer.save()
