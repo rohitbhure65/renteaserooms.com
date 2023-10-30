@@ -16,16 +16,16 @@ const Register = () => {
     role: "",
     profileImg: "",
   });
- 
+
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const onSignup = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:3000/api/users/register", user);
-      console.log("Signu success", response.data);
-      // router.push("/auth/login");
+      const response = await axios.post("/api/users/register", user);
+      console.log("Signup success", response.data);
+      router.push("/auth/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
       toast.error(error.message);
