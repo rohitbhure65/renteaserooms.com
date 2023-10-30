@@ -26,6 +26,8 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.4",
     "eslint": "^8",
     "eslint-config-next": "14.0.0"
   },

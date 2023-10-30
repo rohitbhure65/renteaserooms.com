@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -48,8 +46,7 @@ const Register = () => {
 
   return (
     <div>
-      <h1>{loading ? "Processing" : "signup"}</h1>
-      <label htmlFor="username"></label>
+      <h1>{loading ? "Processing" : "Signup"}</h1>
       <input
         type="text"
         value={user.name}
