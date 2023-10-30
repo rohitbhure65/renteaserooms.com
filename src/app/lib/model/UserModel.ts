@@ -30,7 +30,9 @@ const UserSchema = new mongoose.Schema({
     },
     isVerified:{
         type: Boolean,
-        default: false,
+        // default: false, 
+        default: true
+        //uncommet when you add SMTP email verification
     },
     forgetPasswordToken: String,
     forgetPasswordTokenExpiry: Date,

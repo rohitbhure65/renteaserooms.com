@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 const Profilepage = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ const Profilepage = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>profile page</h1>
       <h2>
         {data === "nothing" ? (
@@ -35,10 +36,11 @@ const Profilepage = () => {
           <Link href={`/profile/${data}`}>{data}</Link>
         )}
       </h2>
+      <Image src="/default_profileImg.svg" width={100} height={100} alt="profile image"></Image>
       <hr />
       <button onClick={logout}>logout</button>
       <button onClick={getUserDetails}>Getuser Details</button>
-    </div>
+    </>
   );
 };
 
