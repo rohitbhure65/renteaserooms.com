@@ -12,6 +12,7 @@ const Register = () => {
     phone: "",
     password: "",
     role: "",
+    city: "",
     profileImg: "",
   });
 
@@ -80,6 +81,13 @@ const Register = () => {
         value={user.role}
         onChange={(e) => setUser({ ...user, role: e.target.value })}
         placeholder="agent / builder / User"
+        required
+      />
+      <input
+        type="text"
+        value={user.city}
+        onChange={(e) => setUser({ ...user, city: e.target.value })}
+        placeholder="Enter your city"
         required
       />
       <input

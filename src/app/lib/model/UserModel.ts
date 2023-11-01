@@ -24,6 +24,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a role"],
     },
+    city:{
+        type: String,
+        required: [true, "Please provide a city"]
+    },
     profileImg: {
         type: String,
         default: ""
@@ -32,7 +36,7 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         // default: false, 
         default: true
-        //uncommet when you add SMTP email verification
+        //uncommet when you add SMTP email verification             
     },
     forgetPasswordToken: String,
     forgetPasswordTokenExpiry: Date,
@@ -41,4 +45,4 @@ const UserSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
-export default User;
+export default User;  
