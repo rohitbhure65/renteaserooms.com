@@ -9,9 +9,9 @@ connectDB()
 export async function POST(request: NextRequest){
     try {
        const reqBody =  await request.json();
-       const {name, email, phone, password, role, profileImg} = reqBody;
+       const {name, email, phone, password, role, city, profileImg} = reqBody;
 
-    //    console.log(reqBody);
+        // console.log(reqBody);
 
         // check if user already exists
         const user = await User.findOne({email})
@@ -29,6 +29,7 @@ export async function POST(request: NextRequest){
             email,
             phone,
             role,
+            city,
             profileImg,
             password: hashedPassword
 
