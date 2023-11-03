@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "@/components/Loader/loader.module.css";
-
-const Loader = () => {
+const loading = () => {
   return (
     <div className={styles.loader}>
       <svg viewBox="0 0 80 80">
@@ -11,4 +10,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default loading;

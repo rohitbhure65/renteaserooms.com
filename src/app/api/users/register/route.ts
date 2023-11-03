@@ -32,13 +32,12 @@ export async function POST(request: NextRequest){
             city,
             profileImg,
             password: hashedPassword
-
         })
 
         const savedUser = await newUser.save()
         // console.log(savedUser)
 
-        //send verification email
+        // send verification email
         await sendEmail({email, emailType: "VERIFY", userId: savedUser._id})
 
         return NextResponse.json({ 
