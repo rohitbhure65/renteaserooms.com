@@ -1,0 +1,17 @@
+@import "./styles/sass/sass";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: $theme-red;
+  text-decoration: none;
+}

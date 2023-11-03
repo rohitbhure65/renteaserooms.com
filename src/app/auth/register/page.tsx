@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
-import styles from "@/styles/Register.module.css";
-import Loader from "@/components/Loader/Loader";
+import styles from "@/styles/Register.module.scss";
+import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
 
 const Register = () => {
@@ -52,7 +52,7 @@ const Register = () => {
     <div className={styles.signup_form}>
       <div className={styles.form_container}>
         <p className={styles.title}>
-          {loading ? <Loader/> : "Create account"}
+          {loading ? <CircularProgress /> : "Create account"}
         </p>
         <div className={styles.form}>
           <input
