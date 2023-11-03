@@ -1,0 +1,12 @@
+// mixin
+@mixin flexbox {
+    display: grid;
+    place-items: center;
+    place-content: center;
+}
+
+@mixin commoncode($par1, $color) {
+    color: $color;
+    // oprators
+    font-size: $par1;
+}
