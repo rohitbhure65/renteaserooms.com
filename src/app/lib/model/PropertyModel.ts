@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const PropertySchema = new mongoose.Schema({
-    currentOwner: {
+    user: {
         type: mongoose.Types.ObjectId,
         ref: "User",
         required: true,
@@ -13,10 +13,9 @@ const PropertySchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ["room", "house", "pg", "hostel"],
         required: true,
     },
-    desc: {
+    description: {
         type: String,
         required: true,
         min: 20,

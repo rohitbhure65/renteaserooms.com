@@ -24,9 +24,8 @@ export async function POST(request: NextRequest){
             //fixme message not showing on screen 
             return NextResponse.json({error: "Password are not matching"},{status: 422})
         } else {
-
                 const newUser = new User({name,email,phone,role,city,profileImg,password,cpassword,})
-
+            
                 const savedUser = await newUser.save()
                 // console.log(savedUser)   
 
