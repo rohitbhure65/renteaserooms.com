@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import styles from "@/styles/Register.module.scss";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
+import { Form } from "rsuite";
 
 const Register = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ const Register = () => {
     email: "",
     phone: "",
     password: "",
+    cpassword: "",
     role: "",
     city: "",
     profileImg: "",
@@ -40,6 +42,7 @@ const Register = () => {
     if (
       user.email.length > 0 &&
       user.password.length > 0 &&
+      user.cpassword.length > 0 &&
       user.name.length > 0
     ) {
       setButtonDisabled(false);
@@ -54,9 +57,11 @@ const Register = () => {
         <p className={styles.title}>
           {loading ? <CircularProgress /> : "Create account"}
         </p>
-        <div className={styles.form}>
+        <Form className={styles.form}>
           <input
             type="text"
+            name="name"
+            id="name"
             className={styles.input}
             value={user.name}
             onChange={(e) => setUser({ ...user, name: e.target.value })}
@@ -65,6 +70,8 @@ const Register = () => {
           />
           <input
             type="email"
+            name="email"
+            id="email"
             className={styles.input}
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -73,6 +80,8 @@ const Register = () => {
           />
           <input
             type="phone"
+            name="phone"
+            id="phone"
             className={styles.input}
             value={user.phone}
             onChange={(e) => setUser({ ...user, phone: e.target.value })}
@@ -81,6 +90,8 @@ const Register = () => {
           />
           <input
             type="password"
+            name="password"
+            id="password"
             className={styles.input}
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
@@ -88,7 +99,19 @@ const Register = () => {
             required
           />
           <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            className={styles.input}
+            value={user.cpassword}
+            onChange={(e) => setUser({ ...user, cpassword: e.target.value })}
+            placeholder="confirm password"
+            required
+          />
+          <input
             type="text"
+            name="role"
+            id="role"
             className={styles.input}
             value={user.role}
             onChange={(e) => setUser({ ...user, role: e.target.value })}
@@ -97,6 +120,8 @@ const Register = () => {
           />
           <input
             type="text"
+            name="city"
+            id="city"
             className={styles.input}
             value={user.city}
             onChange={(e) => setUser({ ...user, city: e.target.value })}
@@ -105,6 +130,8 @@ const Register = () => {
           />
           <input
             type="file"
+            name="profileImg"
+            id="profileImg"
             className={styles.input}
             value={user.profileImg}
             onChange={(e) => setUser({ ...user, profileImg: e.target.value })}
@@ -116,7 +143,7 @@ const Register = () => {
           <button onClick={onSignup} className={styles.form_btn}>
             {buttonDisabled ? "No signup" : "Sign up"}
           </button>
-        </div>
+        </Form>
         <p className={styles.sign_up_label}>
           Already have an account?
           <span className={styles.sign_up_link}>

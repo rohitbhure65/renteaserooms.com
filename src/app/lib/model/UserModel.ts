@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -18,7 +19,10 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Please provide a password"],
-        min: 6
+    },
+    cpassword: {
+        type: String,
+        required: [true, "Please provide a password"],
     },
     role: {
         type: String,
@@ -43,6 +47,15 @@ const UserSchema = new mongoose.Schema({
     verifyToken: String,
     verifyTokenExpiry: Date,
 }, { timestamps: true });
+
+UserSchema.pre('save', async function (next) {
+    if(this.isModified('password')){
+        const salt = await bcrypt.genSalt(10)
+        this.password = await bcrypt.hash(this.password, salt)
+        this.cpassword = await bcrypt.hash(this.cpassword, salt)
+    }
+    next();
+})
 
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
 export default User;  

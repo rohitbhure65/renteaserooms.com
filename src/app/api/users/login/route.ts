@@ -10,11 +10,13 @@ export async function POST(request:NextRequest) {
     try {
        const reqBody = await request.json()
        const {email, password} = reqBody
-
+       if(!email || !password){
+        return NextResponse.json({error: "please filled the field properly"},{status: 422})
+        }   
        // check if user exists
        const user = await User.findOne({email})
        if (!user) {
-        return NextResponse.json({error: "user does not exist"}, {status: 400})
+        return NextResponse.json({error: "user does not exist"}, {status: 40})
        }
 
        //check if password is correct

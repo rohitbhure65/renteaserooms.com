@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import styles from "@/styles/Register.module.scss";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
+import { Form } from "rsuite";
 
 const Login = () => {
   const router = useRouter();
@@ -45,9 +46,11 @@ const Login = () => {
         <p className={styles.title}>
           {loading ? <CircularProgress /> : "Welcome Back"}
         </p>
-        <div className={styles.form}>
+        <Form className={styles.form}>
           <input
             type="email"
+            name="email"
+            id="email"
             className={styles.input}
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -56,6 +59,8 @@ const Login = () => {
           />
           <input
             type="password"
+            name="password"
+            id="password"
             className={styles.input}
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
@@ -68,7 +73,7 @@ const Login = () => {
           <button onClick={onLogin} className={styles.form_btn}>
             {buttonDisabled ? "No Login" : "Login"}
           </button>
-        </div>
+        </Form>
         <p className={styles.sign_up_label}>
           dont have an account?
           <span className={styles.sign_up_link}>
