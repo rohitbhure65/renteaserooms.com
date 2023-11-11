@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const PropertySchema = new mongoose.Schema({
-    user: {
+    currentOwner: {
         type: mongoose.Types.ObjectId,
         ref: "User",
         required: true,

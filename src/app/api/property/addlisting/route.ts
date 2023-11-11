@@ -7,13 +7,13 @@ export async function POST(request: NextRequest){
     try {
         //fixme 
         const reqBody =  await request.json();
-        const {user,title,type,description,price,sqmeters,beds,featured} = reqBody;
+        const {currentOwner,title,type,description,price,sqmeters,beds,featured} = reqBody;
     
         // if(!title || !type || !description || !price || !sqmeters || !beds || !featured){
         // return NextResponse.json({error: "please filled the field properly"},{status: 422})
         // }    
         console.log(reqBody);
-        const listing = new Property({user,title,type,description,price,sqmeters,beds,featured})
+        const listing = new Property({currentOwner,title,type,description,price,sqmeters,beds,featured})
             
         const savedlisting = await listing.save()
         // console.log(savedUser)   

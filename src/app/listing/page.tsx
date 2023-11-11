@@ -14,7 +14,7 @@ const Listing = () => {
   };
 
   return (          
-    <>
+    <>  
       <h1>listing page</h1>
       <h2>
         {data === "nothing" ? (
@@ -23,8 +23,6 @@ const Listing = () => {
           <Link href={`/listing/${data}`}>{data}</Link>
         )}
       </h2>
-
-     
       <button onClick={getListingDetails}>Get Listing Details</button>
     </>
   );

@@ -26,7 +26,12 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,
+        enum:["User" ,"Broker", "Agent", "Agencie"],
         required: [true, "Please provide a role"],
+    },
+    gender: {
+        type: String,
+        enum:["Male", "Female", "Other"]
     },
     city:{
         type: String,
