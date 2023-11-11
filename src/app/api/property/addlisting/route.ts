@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import connectDB from "@/lib/dbConnection/dbconfig";
 import Property from "@/lib/model/PropertyModel"
-
+// GOAL : CREATE A LISTING
 connectDB()
 export async function POST(request: NextRequest){
     try {
@@ -23,7 +23,6 @@ export async function POST(request: NextRequest){
             success: true,
             // savedlisting
         })
-
     } catch (error: any) {
         return NextResponse.json({error: error.message},
             {status: 201})

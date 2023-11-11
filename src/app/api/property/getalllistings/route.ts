@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import connectDB from "@/lib/dbConnection/dbconfig";
 import Property from "@/lib/model/PropertyModel"
-
+// GOAL : GET ALL LISTING
 connectDB()
 export async function GET(request: NextRequest){
     try {
