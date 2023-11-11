@@ -15,7 +15,6 @@ const Register = () => {
     email: "",
     phone: "",
     password: "",
-    cpassword: "",
     role: "",
     city: "",
     profileImg: "",
@@ -42,7 +41,6 @@ const Register = () => {
     if (
       user.email.length > 0 &&
       user.password.length > 0 &&
-      user.cpassword.length > 0 &&
       user.name.length > 0
     ) {
       setButtonDisabled(false);
@@ -96,16 +94,6 @@ const Register = () => {
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="Enter password"
-            required
-          />
-          <input
-            type="password"
-            name="cpassword"
-            id="cpassword"
-            className={styles.input}
-            value={user.cpassword}
-            onChange={(e) => setUser({ ...user, cpassword: e.target.value })}
-            placeholder="confirm password"
             required
           />
           <input

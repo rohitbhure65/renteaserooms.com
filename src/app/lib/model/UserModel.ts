@@ -20,13 +20,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a password"],
     },
-    cpassword: {
-        type: String,
-        required: [true, "Please provide a password"],
-    },
     role: {
         type: String,
+        enum:["User" ,"Broker", "Agent", "Agencie"],
         required: [true, "Please provide a role"],
+    },
+    gender: {
+        type: String,
+        enum:["Male", "Female", "Other"]
     },
     city:{
         type: String,
@@ -52,10 +53,9 @@ UserSchema.pre('save', async function (next) {
     if(this.isModified('password')){
         const salt = await bcrypt.genSalt(10)
         this.password = await bcrypt.hash(this.password, salt)
-        this.cpassword = await bcrypt.hash(this.cpassword, salt)
     }
     next();
 })
-
+    
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
 export default User;  

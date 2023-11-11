@@ -13,10 +13,10 @@ const PropertySchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ["room", "house", "pg", "hostel"],
+        enum: ['House', 'Apartment', 'Villa', 'Mansion', 'Hostel'],
         required: true,
     },
-    desc: {
+    description: {
         type: String,
         required: true,
         min: 20,

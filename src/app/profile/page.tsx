@@ -15,14 +15,14 @@ const Profilepage = () => {
       toast.success("Logout Successful");
       router.push("/auth/login");
     } catch (error: any) {
-      console.log(error.message);
+      // console.log(error.message);
       toast.error(error.message);
     }
   };
 
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
-    console.log(res.data);
+    // console.log(res.data);
     setData(res.data.data._id);
   };
 

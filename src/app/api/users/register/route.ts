@@ -8,9 +8,9 @@ connectDB()
 export async function POST(request: NextRequest){
     try {
         const reqBody =  await request.json();
-        const {name, email, phone, password,cpassword, role, city, profileImg} = reqBody;
+        const {name, email, phone, password, role, city, profileImg} = reqBody;
     
-        if(!name || !email|| !phone|| !password|| !cpassword || !role|| !city){
+        if(!name || !email|| !phone|| !password|| !role|| !city){
         return NextResponse.json({error: "please filled the field properly"},{status: 422})
         }   
         // console.log(reqBody);
@@ -20,13 +20,9 @@ export async function POST(request: NextRequest){
         if(userExists){
             //fixme message not showing on screen
             return NextResponse.json({error: "User already exists"},{status: 422})
-        } else if(password !== cpassword){
-            //fixme message not showing on screen 
-            return NextResponse.json({error: "Password are not matching"},{status: 422})
         } else {
-
-                const newUser = new User({name,email,phone,role,city,profileImg,password,cpassword,})
-
+                const newUser = new User({name,email,phone,role,city,profileImg,password})
+            
                 const savedUser = await newUser.save()
                 // console.log(savedUser)   
 
