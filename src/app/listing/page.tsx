@@ -8,7 +8,7 @@ const Listing = () => {
   const [data, setData] = useState("nothing");
 
   const getListingDetails= async () => {
-    const res = await axios.get("/api/users/me");
+    const res = await axios.get("/api/property/listing");
     // console.log(res.data);
     setData(res.data.data._id);
   };
@@ -26,6 +26,6 @@ const Listing = () => {
       <button onClick={getListingDetails}>Get Listing Details</button>
     </>
   );
-};
+};  
 
 export default Listing;
