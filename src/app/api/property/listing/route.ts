@@ -7,7 +7,7 @@ connectDB()
 export async function GET(request: NextRequest){
     try {
         const propertyId =  await request.json();
-        const property = await Property.findById({propertyId}).populate('currentOwner', '-password')
+        const property = await Property.findById({_id: propertyId}).populate('currentOwner', '-password')
         // console.log(property)
 
         if (!property) {
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest){
                 data: property
             })
         }
-
+        
     } catch (error: any) {
         return NextResponse.json({error: error.message},
             {status: 500})
