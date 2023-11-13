@@ -28,7 +28,7 @@ const Register = () => {
       setLoading(true);
       const response = await axios.post("/api/users/register", user);
       console.log("Signup success", response.data);
-      router.push("/auth/login");
+      router.push("/auth/login"); 
     } catch (error: any) {
       console.log("Signup failed", error.message);
       toast.error(error.message);

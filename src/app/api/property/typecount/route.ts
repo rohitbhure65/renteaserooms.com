@@ -6,8 +6,8 @@ import Property from "@/lib/model/PropertyModel"
 connectDB()
 export async function GET(request: NextRequest){
     try {   
-        const type =  await request.json();
-        // type: {'house'}      
+        const type = request.url
+        // console.log(type)     
         if(type){
             const HouseType = await Property.countDocuments({type: 'House'})
             const ApartmentType = await Property.countDocuments({type: 'Apartment'})
@@ -16,7 +16,8 @@ export async function GET(request: NextRequest){
 
             return NextResponse.json({  
                 message: "Successfully find such type",      
-                success: true,
+                success: true,  
+                status: 200,
                 House: HouseType,
                 Apartment: ApartmentType,
                 Villa: VillaType,

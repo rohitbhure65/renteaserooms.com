@@ -4,7 +4,6 @@ import Property from "@/lib/model/PropertyModel"
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 import User from "@/lib/model/UserModel";
 // GOAL : CREATE A LISTING  
-// fixme
 connectDB()
 export async function POST(request: NextRequest){
     try {
