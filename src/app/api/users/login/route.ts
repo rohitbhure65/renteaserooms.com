@@ -1,3 +1,4 @@
+// GOAL : LOGIN USER
 import { NextResponse, NextRequest } from "next/server";
 import connectDB from "@/lib/dbConnection/dbconfig";
 import User from "@/lib/model/UserModel"
@@ -16,7 +17,7 @@ export async function POST(request:NextRequest) {
        // check if user exists
        const user = await User.findOne({email})
        if (!user) {
-        return NextResponse.json({error: "user does not exist"}, {status: 40})
+        return NextResponse.json({error: "user does not exist"}, {status: 400})
        }
 
        //check if password is correct
@@ -37,6 +38,7 @@ export async function POST(request:NextRequest) {
        const response = NextResponse.json({
         message: "Login successful",
         success: true,
+        status: 200
        })
 
        response.cookies.set("token", token, {

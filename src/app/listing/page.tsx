@@ -14,11 +14,11 @@ const Listing = () => {
   };
 
   return (          
-    <>  
+    <>    
       <h1>listing page</h1>
       <h2>
-        {data === "nothing" ? (
-          "Nothing"
+        {data === "nothing" ? ( 
+          "Nothing" 
         ) : (
           <Link href={`/listing/${data}`}>{data}</Link>
         )}

@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={nunito.className}>
         <NextTopLoader
           color="#FF5A5F"
-          easing="ease"
+          easing="ease"   
           speed={200}
           height={3}
           showSpinner={false}
