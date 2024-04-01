@@ -32,6 +32,8 @@
     "@types/bcrypt": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.4",
     "@types/nodemailer": "^6.4.13",
+    "cypress": "^13.7.1",
+    "cypress-file-upload": "^5.0.8",
     "eslint": "^8",
     "eslint-config-next": "14.0.0"
   },
