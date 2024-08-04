@@ -2,7 +2,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import connectDB from "@/lib/dbConnection/dbconfig";
 import User from "@/lib/model/UserModel"
-import { sendEmail } from "@/helpers/mailer";
 
 // HTTP response status codes
 // Informational responses (100 – 199)
@@ -31,9 +30,6 @@ export async function POST(request: NextRequest){
             
                 const savedUser = await newUser.save()
                 // console.log(savedUser)   
-
-                // send verification email
-                await sendEmail({email, emailType: "VERIFY", userId: savedUser._id})
 
                 return NextResponse.json({ 
                     message: "User Created Successfully",
