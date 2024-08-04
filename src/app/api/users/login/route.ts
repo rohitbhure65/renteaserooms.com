@@ -1,7 +1,7 @@
 // GOAL : LOGIN USER
 import { NextResponse, NextRequest } from "next/server";
 import connectDB from "@/lib/dbConnection/dbconfig";
-import User from "@/lib/model/UserModel"
+import User from "@/lib/model/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
