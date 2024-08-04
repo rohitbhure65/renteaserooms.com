@@ -1,11 +1,21 @@
-import Image from "next/image";
-// import styles from './page.module.css'
-import Link from "next/link";
-
-export default function Home() {
+"use client"
+import React from "react";
+import App from "@/App";
+import "@/index.scss"
+import { AuthContextProvider } from "@/context/AuthContext";
+import { SocketContextProvider } from "@/context/SocketContext.jsx";
+const page = () => {
   return (
-    <main>
-      <Link href="/auth/register">Register</Link> 
-    </main>
-  );
+    <div>
+    <>
+      <AuthContextProvider>
+        <SocketContextProvider>
+          <App />
+        </SocketContextProvider>
+      </AuthContextProvider>
+    </>
+    </div>
+  )
 }
+
+export default page

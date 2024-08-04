@@ -1,5 +1,6 @@
 import { Nunito } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
+
 import "./globals.scss";
 
 const nunito = Nunito({ subsets: ["latin"] });
